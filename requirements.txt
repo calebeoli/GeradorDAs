@@ -1,0 +1,6 @@
+streamlit
+pandas
+pypdf
+PyPDF2
+reportlab
+pdfkit
