@@ -26,7 +26,7 @@ for campo in campos:
 if "index_lotacao" not in st.session_state:
     st.session_state.index_lotacao = None
 
-options = df[(df["IDSUBORDINADOR"].isin([506, 519, 524, 969, 975, 1039, 1042, 1047])) & (df["NIVEL"] == 1)]["Subordinada"].sort_values().tolist()
+options = df.iloc[:,0]
 
 # ----------------- INÍCIO DA ORGANIZAÇÃO VISUAL -----------------
 
