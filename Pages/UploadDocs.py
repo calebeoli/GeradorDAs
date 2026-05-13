@@ -27,7 +27,7 @@ class PDFEmMemoria(io.BytesIO):
 
 @st.cache_data
 def loading_orgao():
-    df = pd.read_csv("MAPA_ORGAO.csv",sep=",").drop(columns=["ID","fk"])
+    df = pd.read_csv("LISTA_ORGAOS.csv",sep=";")
     return df
 
 df = loading_orgao()
