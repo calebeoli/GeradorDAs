@@ -12,7 +12,7 @@ from reportlab.lib.colors import black
 from reportlab.lib.utils import ImageReader
 from reportlab.lib.colors import black, HexColor
 import base64
-from PyPDF2 import PdfReader, PdfWriter
+
 
 df = loading_orgao()
 
