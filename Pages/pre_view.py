@@ -28,8 +28,8 @@ try:
     ref = st.session_state.ref_planejamento if st.session_state.ref_planejamento else " "
     na_num = st.session_state.NA if st.session_state.NA else " "
     jurisdicionados = st.session_state.jurisdicionados if st.session_state.jurisdicionados else " "
-    lotacao = df.loc[df["Subordinada"] == st.session_state.lotacao_usuario,"DESCORGAO"].iloc[2]
-    Secretaria = df.loc[df["Subordinada"] == st.session_state.lotacao_usuario,"DESCORGAO_SUBORDINADOR"].iloc[3]
+    lotacao = df.loc[df['SIGLA_ORGAO'] == st.session_state.lotacao_usuario, 'ORGAO_SELECIONADO'].iloc[0]
+    Secretaria = df.loc[df['SIGLA_ORGAO'] == st.session_state.lotacao_usuario, 'ORGAO_SUPERIOR'].iloc[0]
     Barramento = st.session_state.num_barramento if st.session_state.num_barramento else " "
         
     # Pegando as variáveis novas que você adicionou:
@@ -213,7 +213,7 @@ try:
 
                         linhas_tabela = [
                             ("Processo nº", info_processo),
-                            ("Técnica utilizada:", info_tecnica)
+                            ("Descrição da ficalização:", info_tecnica)
                         ]
                         
                         # Adiciona ao PDF apenas se o campo não estiver vazio
@@ -221,7 +221,7 @@ try:
                             linhas_tabela.append(("Referência ao Planejamento:", info_referencia))
                             
                         if info_tempo.strip(): # jurisdicionados
-                            linhas_tabela.append(("Tempo para execução dos procedimentos e seu\nregistro nesse DA_PT:", info_tempo))
+                            linhas_tabela.append(("Jurisdicionados:", info_tempo))
                             
                         if na_num.strip(): # Incluído porque estava no preview Markdown
                             linhas_tabela.append(("NA nº", na_num))
